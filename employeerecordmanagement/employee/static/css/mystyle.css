@@ -1,0 +1,18 @@
+
+.nav-link
+{
+color:white !important;
+}
+
+.nav-link:hover
+{
+color:rgb(245, 30, 30) !important;
+background-color: black;
+border-radius: 60px;
+}
+
+.navbar-brand
+{
+    font-weight: bold;
+    color: dodgerblue !important;
+}
