@@ -1,0 +1,89 @@
+{% include 'header.html' %}  <!-- we are including the header [page here bcz we are opening the signup page in the same header page else it will open in new page]-->
+
+<!-- now we are going to create an registration page for the user -->
+{% load static %}   <!--since i need to style the web psge i need to include the css so i loaded it to my html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+        <title>Registration Page</title>
+</head>
+<body>
+
+<div class="container mt-5">    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">Register</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post"name="signup" onsubmit="return checkpassword()">  <!--this post method is to send the completed registration form to the data base .... and on submitting the form it should check whether the passwords are same so it has to call a javascript fuction to check the match.....if the submit is true then only the form id submitted-->
+                        {% csrf_token %}  <!-- csrf_token is used for security purpose like encoding its inbuilt django protection -->
+                        <div class="form-group">
+                            <label >firstname</label>
+                            <input type="text" class="form-control" name="firstname" placeholder="Enter your firstname" pattern="[A-Za-z]+" required ><!--pattern is used to ensure that the username contains only alphabets-->
+                        </div>
+                        <div class="form-group">
+                            <label >lastname</label>
+                            <input type="text" class="form-control" name="lastname" placeholder="Enter your lastname" pattern="[A-Za-z]+" required>
+                        </div>
+                        <div class="form-group">
+                            <label >Employee code</label>
+                            <input type="text" class="form-control" name="empcode" placeholder="Enter your code" pattern="[0-9]+" required>
+                        </div>
+                        <div class="form-group">
+                            <label >Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required> <!--the required atribute makes the form to fill each boxes mandatory-->
+                        </div>
+                        <div class="form-group">
+                            <label >Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group">
+                            <label >Confirm Password</label>
+                            <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+<script>
+     //now the below code is the function to check password
+  function checkpassword()
+  {
+    if(document.signup.password.value != document.signup.confirmPassword.value )
+    {
+        alert('password and confirm password are not matched');
+        document.signup.confirmPassword.focus(); //after alerting the user the curser will stand on the confrmpasswrd and strt blinking to indicate check
+        return false;
+    }
+    return true;
+  }
+</script>
+
+<!--now we are going to give an alert msg to the user that whether thr msg is stored are not-->
+
+{% if error == "no" %}  <!--this the way to declare a python code inside the html.... the error variable is rendered when we call this page -->
+<script>
+    alert("Your registration is successfully completed");
+    window.location = ('{% url "emp_login" %}');  /* after successfull registration we are goin to redirect to login page using this javascript command*/
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert("something went wrong.Try again...")
+</script>
+{% endif %}

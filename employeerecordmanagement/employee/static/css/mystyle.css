@@ -1,18 +1,45 @@
 
-.nav-link
+.nav-link 
 {
 color:white !important;
 }
 
-.nav-link:hover
+
+.nav-link:hover 
 {
 color:rgb(245, 30, 30) !important;
 background-color: black;
 border-radius: 60px;
 }
 
+
 .navbar-brand
 {
     font-weight: bold;
-    color: dodgerblue !important;
+    color: dodgerblue !important; /* !important  this is to make the changes default and activate it imidiately*/
+}
+.card-header
+{
+    color: rgb(4, 0, 122) !important;
+    background-color: aqua;
+    border-bottom: 10px;
+}
+.form-group label
+{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: rgb(228, 40, 102);
+}
+
+/*drk mode color */
+/* Custom styles for dark mode */
+.dark-mode {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+/*now i am going to style emp_base page*/
+.list-group-item  :first-child
+{
+    color: aqua;
+    background-color: rgb(82, 247, 5);
 }

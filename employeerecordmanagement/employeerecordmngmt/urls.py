@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from employee.views import *
+from employee.views import *  ## to call the index function(below in the url pattern ) we need to import it so imported it..
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index)
+    path('',index,name='index'),       # inside this quotes ''   we assaign the url name like admin etc then after comma we call the function to render the page
+    path('registration/',registration,name='registration'), # we are assaigning the name so that we can call the url name inside the html codes
+    path('emp_login/',emp_login,name="emp_login"),
+    path('emp_home/',emp_home,name="emp_home")
+
 ]
