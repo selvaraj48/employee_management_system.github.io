@@ -1,0 +1,22 @@
+/*now i am going to style emp_base page*/
+.container-fluid h3
+{
+    color: rgb(0, 255, 26);
+    background-color: bisque;
+    font-style: oblique;
+    border-bottom: 2px solid red;  /* border-bottom assaigns the bsize of the botom like 2px and solid make the border vissible by the color red */
+   
+}
+.center { 
+    text-align:center; 
+    width:100%; 
+} 
+
+.container-fluid h4
+{
+    color: blue;
+    background-color: beige;
+    border-bottom: 2px solid orange;
+}
+
+

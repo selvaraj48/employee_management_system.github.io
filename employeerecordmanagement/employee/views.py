@@ -48,3 +48,6 @@ def emp_login(request):
 
 def emp_home(request):
     return render(request,"emp_home.html")
+
+def new(request):
+    return render(request,'new.html')
