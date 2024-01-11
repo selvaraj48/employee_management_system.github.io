@@ -24,7 +24,8 @@ urlpatterns = [
     path('registration/',registration,name='registration'), # we are assaigning the name so that we can call the url name inside the html codes
     path('emp_login/',emp_login,name="emp_login"),
     path('emp_home/',emp_home,name="emp_home"),
-    path('new/',new)
+    path('profile',profile,name='profile'),
+    path('logout/',Logout, name="logout")
 
 ]
 
