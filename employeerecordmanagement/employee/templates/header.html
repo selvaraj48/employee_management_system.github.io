@@ -24,10 +24,10 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="nav navbar-nav ml-auto">        <!--since we are using bootstrap 4 the command for assaigning to right is ml-auto-->
-                <div class="custom-control custom-switch">
+                <div class="custom-control custom-switch mt-2 ">
                   <input type="checkbox" class="custom-control-input" id="darkModeToggle">
-                  <label class="custom-control-label" for="darkModeToggle">Dark Mode</label>
-              </div>
+                  <label class="custom-control-label" style="color: whitesmoke" for="darkModeToggle">Dark Mode</label>
+                </div>
                 <li class="nav-item">
                   <a class="nav-link" href="#"><i class="fa fa-home" ></i>Home</a>    <!--## here i have icludede the icon symbol home from the fontawesome site -->
                 </li>
@@ -38,7 +38,7 @@
                   <a class="nav-link" href="{% url 'emp_login' %}"><i class="fa fa-sign-in-alt" ></i>Employee Login</a>
                 </li>    
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa fa-sign-in-alt" aria-hidden="true"></i>Admin Login</a>
+                  <a class="nav-link" href="{% url 'admin_login' %}"><i class="fa fa-sign-in-alt" aria-hidden="true"></i>Admin Login</a>
                 </li> 
               </ul>
             </div>  

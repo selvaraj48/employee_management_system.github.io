@@ -1,0 +1,105 @@
+{% extends 'emp_base.html' %} <!--instead of including the page we exttended bcz if we include we can oly load the pg but if we extend we can see the changes or content edited in the pg is visible-->
+
+{% block main %}
+
+   <!--since i need to style the web psge i need to include the css so i loaded it to my html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <title>Education</title>
+</head>
+<body>
+<!--mt-2 is the commsnd to alter the margine size-->
+<div class="card shadow m-2">
+    <div class="card-header">
+        <a href="{% url 'edit_myeducation' %}" class="btn btn-primary float-right btn-sm">Edit My Education Details</a>
+        <h4 >My Education</h4>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Post Graduation Course Name</th>
+                        <td>{{ education.coursepg }}</td>
+                    </tr>
+                    <tr>
+                        <th>Post Graduate School/College Name</th>
+                        <td>{{ education.schoolclgpg }}</td>
+                    </tr>
+                    <tr>
+                        <th>Year Of Passing PG</th>
+                        <td>{{ education.yearofpassingpg }}</td>
+                    </tr>
+                    <tr>
+                        <th>Percentage Obtained In PG</th>
+                        <td>{{ education.percentagepg }}</td>
+                    </tr>
+
+
+                    <tr>
+                        <th> Graduation Course Name</th>
+                        <td>{{ education.coursegra }}</td>
+                    </tr>
+                    <tr>
+                        <th> Graduate School/College Name</th>
+                        <td>{{ education.schoolclggra }}</td>
+                    </tr>
+                    <tr>
+                        <th>Year Of Passing in Graduate </th>
+                        <td>{{ education.yearofpassinggra }}</td>
+                    </tr>
+                    <tr>
+                        <th>Percentage Obtained In Graduatio </th>
+                        <td>{{ education.percentagegra }}</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>SSC Course Name</th>
+                        <td>{{ education.coursessc }}</td>
+                    </tr>
+                    <tr>
+                        <th>SSC School/College Name</th>
+                        <td>{{ education.schoolclgssc }}</td>
+                    </tr>
+                    <tr>
+                        <th>Year Of Passing SSC</th>
+                        <td>{{ education.yearofpassingssc }}</td>
+                    </tr>
+                    <tr>
+                        <th>Percentage Obtained In SSC</th>
+                        <td>{{ education.percentagessc }}</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>HSC Course Name</th>
+                        <td>{{ education.coursehsc }}</td>
+                    </tr>
+                    <tr>
+                        <th>HSC School/College Name</th>
+                        <td>{{ education.schoolclghsc }}</td>
+                    </tr>
+                    <tr>
+                        <th>Year Of Passing HSC</th>
+                        <td>{{ education.yearofpassinghsc }}</td>
+                    </tr>
+                    <tr>
+                        <th>Percentage Obtained In HSC</th>
+                        <td>{{ education.percentagehsc }}</td>
+                    </tr>
+
+
+                </table>
+            </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+{% endblock %}

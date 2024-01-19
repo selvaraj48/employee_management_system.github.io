@@ -31,13 +31,9 @@
                 </div><!-- style is the method to change the icon color-->
 
                 <div class="list-group" >
-                    <a href="{% url 'emp_home' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/emp_home/' %} active {% endif %}">Dashboard</a>  <!--here we used  if conditon to make a lokk if press the dashboard it shoul change color or make active so we use the if function-->
-                    <a href="{% url 'profile' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/profile/' %} active {% endif %}">Profile</a>
-                    <a href="{% url 'myexperience' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/myexperience/' %} active {% endif %}">My Experience</a>
-                    <a href="{% url 'edit_experience' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/edit_experience/' %} active {% endif %}">Edit My Experience</a>
-                    <a href="{% url 'myeducation' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/myeducation/' %} active {% endif %}">My Education</a>
-                    <a href="{% url 'edit_myeducation' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/edit_myeducation/' %} active {% endif %}">Edit My Education</a>
-                    <a href="{% url 'change_password' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/change_password/' %} active {% endif %}">Change Password</a>
+                    <a href="{% url 'admin_home' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/admin_home/' %} active {% endif %}">Dashboard</a>
+                    <a href="{% url 'all_employees' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/all_employees/' %} active {% endif %}">All Employees</a>
+                    <a href="{% url 'change_adminpassword' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/change_password/' %} active {% endif %}">Change Password</a>
                     <a href="{% url 'logout' %}" class="list-group-item list-group-item-warning list-group-item-action">Logout</a>
                 </div>
             </div>
@@ -57,4 +53,29 @@
     </div>
 </body>
 
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>                                        <!--these below scripts are for making table more interactive-->
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+<!--now these scripts are for css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">                      <!--these are all for table either u want to search or export data all come form the above script and these styleesheets-->
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+</script>
 </html>

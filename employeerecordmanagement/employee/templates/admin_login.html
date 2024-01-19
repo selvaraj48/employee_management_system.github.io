@@ -1,0 +1,65 @@
+{% load static %}      
+<!DOCTYPE html>
+<html>
+  <head>
+              <!-- we have done some styling using css in static folder to include that in our page we call it using load  -->
+
+          <!-- the navbar programs are avalable in the w3 schill and edit as u nedd it    -->
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+          <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+          <link rel="stylesheet" href="{% static 'css/login.css' %}"> <!-- once againn i need to call the css to link it with my code -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+          <!--the above stylee sheet is to link the icon from fontawesome site ...''' so if u need any stylings like this u need to link the stylesheet accordingly'''-->
+  </head>
+  <body style="background-image: url('static/images/bg1.jpg')"> <!--this is the way to assaign a bg image t0 body -->
+        <div class="row">
+            <div class="col-lg-4 m-auto"> <!--m-auto means it assaign margine to centre-->
+                <div class="card mt-5 transparent"> <!-- mt == margin at top-->
+                    <div class="card-header text-center " >
+                        <i class="fa fa-user fa-10x my-3 mx-5" style="color:#07f8f8;" aria-hidden="true"></i> 
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="input-group col-md-10 mx-5 mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <!-- span gives style to the icon in our page we use it as text form so we use as txt-->
+                                        <i class=" fa fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" name="username" placeholder="Enter your username" pattern="[A-Za-z]+" required>
+                            </div>
+                            <div class="input-group col-md-10 mx-5 mb-2"> <!--mb means margin at bottom -->
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <!-- span gives style to the icon in our page we use it as text form so we use as txt-->
+                                        <i class=" fa fa-lock"></i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" name="password" placeholder="Enter your password"  required>
+                            </div>
+                            <input type="submit" class="btn btn-primary " >
+                            <a href="{% url 'index' %}" class="float-right mx-5 text-white">Go back to HOME</a>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+  </body>
+</html> 
+
+{% if error == "no" %}  <!--this the way to declare a python code inside the html.... the error variable is rendered when we call this page -->
+<script>
+    alert("Logged in successfully");
+    window.location = ('{% url "admin_home" %}');  /* after successfull registration we are goin to redirect to login page using this javascript command*/
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert("Invalid login credential")
+</script>
+{% endif %}

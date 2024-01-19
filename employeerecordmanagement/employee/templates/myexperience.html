@@ -1,0 +1,86 @@
+{% extends 'emp_base.html' %} <!--instead of including the page we exttended bcz if we include we can oly load the pg but if we extend we can see the changes or content edited in the pg is visible-->
+
+{% block main %}
+
+   <!--since i need to style the web psge i need to include the css so i loaded it to my html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <title>Index Page</title>
+</head>
+<body>
+<!--mt-2 is the commsnd to alter the margine size-->
+<div class="card shadow m-2">
+    <div class="card-header">
+        <a href="{% url 'edit_experience' %}" class="btn btn-primary float-right btn-sm">Edit My Experience</a>
+        <h4 >My Work Experience</h4>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>First Company Name</th>
+                        <td>{{ experience.company1name }}</td>
+                    </tr>
+                    <tr>
+                        <th>First Job Designation</th>
+                        <td>{{ experience.company1desig }}</td>
+                    </tr>
+                    <tr>
+                        <th>First Job Salary</th>
+                        <td>{{ experience.company1salary }}</td>
+                    </tr>
+                    <tr>
+                        <th>First Job Duration</th>
+                        <td>{{ experience.company1duration }}</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>Second Company Name</th>
+                        <td>{{ experience.company2name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Second Job Designation</th>
+                        <td>{{ experience.company2desig }}</td>
+                    </tr>
+                    <tr>
+                        <th>Second Job Salary</th>
+                        <td>{{ experience.company2salary }}</td>
+                    </tr>
+                    <tr>
+                        <th>Second Job Duration</th>
+                        <td>{{ experience.company2duration }}</td>
+                    </tr>
+
+
+
+                    <tr>
+                        <th>Third Company Name</th>
+                        <td>{{ experience.company3name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Third Job Designation</th>
+                        <td>{{ experience.company3desig }}</td>
+                    </tr>
+                    <tr>
+                        <th>Third Job Salary</th>
+                        <td>{{ experience.company3salary }}</td>
+                    </tr>
+                    <tr>
+                        <th>Third Job Duration</th>
+                        <td>{{ experience.company3duration }}</td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+{% endblock %}

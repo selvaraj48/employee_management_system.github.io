@@ -22,7 +22,7 @@
                     <h4 class="text-center">Profile</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post"name="signup" onsubmit="return checkpassword()">  <!--this post method is to send the completed registration form to the data base .... and on submitting the form it should check whether the passwords are same so it has to call a javascript fuction to check the match.....if the submit is true then only the form id submitted-->
+                    <form method="post">  <!--this post method is to send the completed registration form to the data base .... and on submitting the form it should check whether the passwords are same so it has to call a javascript fuction to check the match.....if the submit is true then only the form id submitted-->
                         {% csrf_token %}  <!-- csrf_token is used for security purpose like encoding its inbuilt django protection -->
                         <div class="form-row">
                             <div class="col-md-6">
